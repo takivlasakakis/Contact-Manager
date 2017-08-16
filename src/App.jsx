@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from './api';
+import styles from './style.css'
 
 class App extends Component {
   state = {
@@ -24,40 +25,58 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Contact Manager</h2>
+      <div className="container">
+        <div className="App">
+          <div className="jumbotron">
+
+            <div className="display-3">
+              <h2>Contact Manager</h2>
+            </div>
+
+              <form onSubmit={this.handleSubmit}>
+                <fieldset>
+                  <legend className="lead">Add a Cat</legend>
+                  <ul>
+                    <li>
+                      <label htmlFor="name">Name</label>
+                      <input name="name" id="name" />
+                    </li>
+                    <li>
+                      <label htmlFor="img">Url to Image</label>
+                      <input name="img" id="img" />
+                    </li>
+                    <li>
+                      <button>Add Cat</button>
+                    </li>
+                  </ul>
+                </fieldset>
+              </form>
+            </div>
+
+            <div className="row marketing">
+              <div className="col-lg-6">
+              {
+                this.state.cats &&
+                <div className="row">
+                  <ul className="catListItem">
+                    {this.state.cats.map(cat => (
+                      <li key={cat.id}>
+                        Name: {cat.name}
+                        Image: <img src={cat.img} alt="" />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              }
+              </div>
+              <div className="col-lg-6">
+              </div>
+            </div>
+
+            <div className="footer">
+            </div>
         </div>
-        {
-          this.state.cats &&
-          <ul>
-            {this.state.cats.map(cat => (
-              <li key={cat.id}>
-                Name: {cat.name}
-                Image: <img src={cat.img} alt="" />
-              </li>
-            ))}
-          </ul>
-        }
-        <form onSubmit={this.handleSubmit}>
-          <fieldset>
-            <legend>Add a Cat</legend>
-            <ul>
-              <li>
-                <label htmlFor="name">Name</label>
-                <input name="name" id="name" />
-              </li>
-              <li>
-                <label htmlFor="img">Url to Image</label>
-                <input name="img" id="img" />
-              </li>
-              <li>
-                <button>Add Cat</button>
-              </li>
-            </ul>
-          </fieldset>
-        </form>
-      </div>
+      </div>  
     );
   }
 }
