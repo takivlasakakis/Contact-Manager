@@ -33,17 +33,17 @@ class App extends Component {
               <h2>Contact Manager</h2>
             </div>
 
-              <form onSubmit={this.handleSubmit}>
+              <form className="form" onSubmit={this.handleSubmit}>
                 <fieldset>
                   <legend className="lead">Add a Cat</legend>
-                  <ul>
+                  <ul id="catNameListItem">
                     <li>
-                      <label htmlFor="name">Name</label>
-                      <input name="name" id="name" />
+                      <label className="catName" htmlFor="name">Name</label>
+                      <input className="catInput" name="name" id="name" />
                     </li>
                     <li>
-                      <label htmlFor="img">Url to Image</label>
-                      <input name="img" id="img" />
+                      <label className="catName" htmlFor="img">Url to Image</label>
+                      <input className="catInput" name="img" id="img" />
                     </li>
                     <li>
                       <button>Add Cat</button>
@@ -62,7 +62,7 @@ class App extends Component {
                     {this.state.cats.map(cat => (
                       <li key={cat.id}>
                         Name: {cat.name}
-                        Image: <img src={cat.img} alt="" />
+                        Image: <img className="catImage" src={cat.img} alt="" />
                       </li>
                     ))}
                   </ul>
