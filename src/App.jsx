@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import api from './api';
 import styles from './style.css'
 
+
+              // TODO: the cat list here requires a delete button
+              // also needs phone number added to contact
+              // email
+              // could put in an edit function that allows editing the posted info
+              
 class App extends Component {
   state = {
     cats: [],
